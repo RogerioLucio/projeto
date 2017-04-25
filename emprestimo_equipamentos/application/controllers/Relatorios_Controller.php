@@ -27,7 +27,12 @@ class Relatorios_Controller extends CI_Controller {
 	public function relatorio(){
 			$this->load->view('common/header');
 			$this->load->view('common/nav');
-			$this->load->view('relatorios/requisicao');
+			$this->load->model('Relatorios');
+			$resultado = $this->Relatorios->getRelatorioReserva();
+			echo $return; exit;
+			$this->load->view('relatorios/requisicao',$return);
+			
+
 	}
 
 	public function atualiza(){
