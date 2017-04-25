@@ -6,20 +6,36 @@
         <a class="navbar-brand" href="#">Start Bootstrap</a>
         <div class="collapse navbar-collapse" id="navbarExample">
             <ul class="sidebar-nav navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+
+             <li class="nav-item active">
+                    <div class="teste" > 
+                        <img src="<?php echo base_url('assets/img/if.png')?>"  alt="" >
+                   </div>
                 </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="<?php echo base_url('usuario_controller/home')?>"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                </li>
+
+
 <!--                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo base_url('equipamento/viewCadastro')?>"><i class="fa fa-fw fa-plus-square"></i> Equipamentos</a>
                 </li> -->
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fa fa-fw fa-area-chart"></i> Graphs</a>
+                    <a class="nav-link" href="<?php echo base_url('Usuario_Controller/cadastro')?>"><i class="fa fa-fw fa-area-chart"></i> Cadastro de Usuarios</a>
                 </li>
+
+           
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fa fa-fw fa-cogs"></i> Widgets</a>
+                    <a class="nav-link" href="<?php echo base_url('equipamento/viewCadastro')?>"><i class="fa fa-fw fa-cogs"></i> Cadastro de Patrimonios</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fa fa-fw fa-table"></i> Tables</a>
+                     <li class="dropdown">
+                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-fw fa-table"></i>   Relatorios </a>
+                    <ul class="relatorios dropdown-menu">
+                      <li><a href="<?php echo base_url('Relatorios_Controller/relatorio')?>">Requisições</a></li>
+                      <li><a href="#">Another action</a></li>
+                      <li><a href="#">Something else here</a></li>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExample"><i class="fa fa-fw fa-sitemap"></i> Menu Levels</a>

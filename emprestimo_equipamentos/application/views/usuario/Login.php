@@ -3,17 +3,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 session_destroy();
 ?>
 
-<body style="background-color: #00420c;">
+<body style="">
 
 <div class="container">
 	
+		
+	<div class="pagina login">					
+			
 		<div class="col-md-12">
-			TESTE
+		<div class="center-block" style="text-align: center;">
+			<div class="logo-home">
+				<img src="assets/img/if.png">		
+			</div>
+			
 		</div>
-		
-	<div class="pagina">					
-		
+		<hr>
+		</div>
 			<div class="div_login">
+				
 				<form action='<?php echo base_url('usuario_controller/login_model');?>' method="POST">
 				<div class="row">
 					<div class="col-md-12">
@@ -28,16 +35,19 @@ session_destroy();
 					</div>
 				</div>
 
-				<div class="row">
+				<!--<div class="row">
 					 <div class="col-md-12">
 					 		<input type="submit" id="login_entrar" class="btn btn-primary" value="Entrar" name="entrar">
 					 </div>
-				</div>
+				</div>-->
 				<div class="row">
-					 <div class="col-md-6">
+					<div class="col-md-4">
+					 		<input type="submit" id="login_entrar" class="btn btn-primary" value="Entrar" name="entrar">
+					 </div>
+					 <div class="col-md-4">
 					 		<a type="button" href="<?php echo base_url('usuario_controller/recupera_senha');?>" class="btn btn-link" value="Esqueci Minha senha" name="esqueci_senha" >Esqueci Minha senha</a>
 					 </div>
-					 <div class="col-md-6">
+					 <div class="col-md-4">
 							<a href="<?php echo base_url('usuario_controller/cadastro');?>"  class="btn btn-link">Registre</a>
 
 					 </div>

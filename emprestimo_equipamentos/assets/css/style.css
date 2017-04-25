@@ -50,4 +50,56 @@ box-sizing: border-box;
 .espacamento{
     margin-top: 10%;
 }
+.teste {
+    width: 100%;
+    margin-bottom: 20px;
+}
 
+.teste img {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border: solid 2px #00420c;
+    border-radius: 10px;
+
+}
+
+.logo-home img{
+
+    border: solid 2px #71c837;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.logo-home img{
+    width: 20%;
+  
+}
+
+.login hr {
+    background-color: #0c6e1e;
+    height: 2px;
+    border-radius: 51px;
+    opacity: 0.9;
+}
+
+.dropdown-menu{
+        left: 20px !important;
+        padding:5px 30px 5px 30px !important;
+}
+.dropdown-menu a {
+    color: black !important;
+}
+
+.dropdown-menu a:hover {
+    color: black !important;
+}
+
+.dropdown-menu a:focus {
+    color: black !important;
+}
+
+.main{
+    padding: 4% 3% 0% 3%;
+}
