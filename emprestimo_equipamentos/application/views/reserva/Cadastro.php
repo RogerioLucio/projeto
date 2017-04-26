@@ -12,11 +12,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="container col-md-9">					
 		
 			<div class="container col-md-12">
-				<form action='<?php echo base_url('usuario_controller/login_model');?>' method="POST">
+				<form action='<?php echo base_url('reserva_controller/reserva_model');?>' method="POST">
+				<input type="hidden" name="prontuario" value="<?php echo $this->session->userData[0]->prontuario_usuario;?>">
 				<div class="row">
 					<div class="col-md-12">
-						<label for="usuario" style="color:white">Nome do Equipamento </label><br>
-						<input class="form-control" type="text" name="nome_equipamento">
+						<label for="descricao" style="color:white">Descrição da Reserva</label><br>
+						<input class="form-control" type="text" name="descricao_equipamento">
 					</div>
 				</div>
 				<div class="row">
@@ -51,23 +52,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						       </select><br> 
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-6">
-							<label  class="label-cadastro" style="color:white">Equipamento</label><br>
-								<select name="categoria" class="form-control ">
-							        <?php foreach ($equipamentos as $item): ?>
-							            <option value='<?=$item->id_equipamento?>'>
-							             <?= $item->patrimonio_equipamento?> - <?= $item->descricao?>
+				
+				<div class="col-md-12" style="background-color: white">
+				 <?php foreach ($equipamentos as $item): ?>
+
+				 			<?php
+				 				$count = 0;
+				 				$count++;
+				 				if( $count % 2 ==0 ){
+				 					$cor = "black";
+				 				}else{
+				 					$cor = "grey";
+				 				}
+				 				
+				 			?>
+									 	<div class="row" style="background-color:<?=$cor?>">
+											<div class="col-md-2">
+												<input type="checkbox" name="equipamentos[]" value='<?=$item->id_equipamento?>'> 
+							             <?= $item->patrimonio_equipamento?> 
+											</div>
+											<div class="col-md-3">
+												 <p>Quantidade</p><input class="form-control" placheholder="quantidade" type="text" name="quantidade_<?=$item->id_equipamento?>"><br> 
+											</div>
+										</div>
+							            
 							            </option> 
 							        <?php endforeach;?>
-						       </select><br> 
-					</div>
-					
-				</div>
+		        </div>
+
 
 				<div class="row">
 					 <div class="col-md-12">
-					 		<input type="submit" id="login_entrar" class="btn btn-primary" value="Entrar" name="entrar">
+					 		<input type="submit" id="login_entrar" class="btn btn-primary" value="Enviar" >
 					 </div>
 				</div>
 				
