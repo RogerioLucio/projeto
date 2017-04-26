@@ -20,10 +20,12 @@ $this->load->library('session');
 				?>
 
 				<link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>"	rel="stylesheet">
-				
+				<script src="http://code.jquery.com/jquery-latest.js"></script>
 				<link href="<?php echo base_url ( 'assets/font-awesome/css/font-awesome.min.css' );?>"	rel="stylesheet">
 				<link href="<?php echo base_url ( 'assets/css/style.css' );?>"	rel="stylesheet">
-				<script src="<?php echo base_url('assets/js/jquery.min.js');?>"></script>   
+				<script src="<?php echo base_url('assets/js/jquery-3.2.1.min.js');?>"></script>   
+
+
 				<script src="<?php echo base_url('assets/js/tether.min.js');?>"></script>   
 				<script src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
 				<script src="<?php echo base_url('assets/js/chart.js/Chart.min.js');?>"></script>

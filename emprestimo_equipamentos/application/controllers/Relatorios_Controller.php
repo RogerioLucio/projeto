@@ -35,6 +35,23 @@ class Relatorios_Controller extends CI_Controller {
 
 	}
 
+	public function Relatorio_Patrimonio(){
+			$this->load->model('Relatorios');
+			
+
+			if(isset($_POST['id'])){
+
+				$dados['resultado'] = $this->Relatorios->getRelatorioPatrimonio();
+				var_dump($dados['resultado'][0]);
+			}else{
+				$this->load->view('common/header');
+				$this->load->view('common/nav');
+				$dados['resultado'] = $this->Relatorios->getRelatorioPatrimonio();
+				$this->load->view('relatorios/patrimonio',$dados);
+			}
+
+			
+	}
 	public function atualiza(){
 		if($this->session->userData[0]->tipo_usuario == 'administrador'){
 			$this->load->model('Equipamento_Model');
