@@ -30,6 +30,7 @@ class Equipamento_Controller extends CI_Controller {
 			$this->form_validation->set_rules('patrimonio','Patrimonio','required');
 			$this->form_validation->set_rules('status','Status','required');
 			$this->form_validation->set_rules('categoria','Categoria','required');
+			$this->form_validation->set_rules('espaco', 'Espaco', 'required');
 			if($this->form_validation->run() == TRUE){
 				$resultado = $this->Equipamento_Model->insert();
 				if($resultado == null){
@@ -69,7 +70,7 @@ class Equipamento_Controller extends CI_Controller {
 	public function select(){
 		if($this->session->userData[0]->tipo_usuario == 'administrador'){
 			$this->load->model('Equipamento_Model');
-			$resultado = $this->Equipamento_Model->select(); 
+			$resultado = $this->Equipamento_Model->select();
 			$this->load->view('common/header');
 			$this->load->view('common/nav');
 			$this->load->view('equipamento/equipamento_cadastro', $resultado);
@@ -80,9 +81,11 @@ class Equipamento_Controller extends CI_Controller {
 
 	public function viewCadastro(){
 		if($this->session->userData[0]->tipo_usuario == 'administrador'){
+			$this->load->Model('Espaco_Model');
+			$resultado['espacos'] = $this->Espaco_Model->getEspacos();
 			$this->load->view('common/header');
 			$this->load->view('common/nav');
-			$this->load->view('equipamento/equipamento_cadastro');
+			$this->load->view('equipamento/equipamento_cadastro', $resultado);
 		}else{
 			redirect(base_url('/'));
 		}

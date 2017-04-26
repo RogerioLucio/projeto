@@ -29,13 +29,30 @@
 								<select name="categoria" id="getCategorias" class="form-control" <?php if(isset($id_categoria)) echo 'disabled'?> >
 									<option value="<?php if(isset($id_categoria))echo $id_categoria?>" selected></option>
 								</select>
-								<!-- <input class="form-control" type="text" name="categoria" value="<?php if(isset($id_categoria))echo $id_categoria?>"> -->
 							</div>
 							<?php if(isset($data_delet_excl)){
 								$data = date_create($data_delet_excl);
 								echo '<div class="col-md-8"><span class="alert-danger"><br>Equipamento descartado em '.date_format($data,"d/m/Y ").'</span></div><br/>';
 							}
 							?>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+							<label for="descricao">Descrição</label><br>
+							<input type="text" name="descricao" class="form-control" value="<?php if(isset($descricao))echo $descricao?>">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+							<label for="descricao">Espaço</label><br>
+								<select name="espaco"  id="getEspaco" class="form-control">
+									<?php 
+										foreach ($espacos as $espaco) {
+											echo '<option value="'.$espaco->id_espaco.'">'.$espaco->local_espaco.'</option>';
+										}
+									?>
+								</select>
+							</div>
 						</div>
 						<br>
 						<div class="row">
