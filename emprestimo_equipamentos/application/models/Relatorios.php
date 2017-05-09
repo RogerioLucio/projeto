@@ -32,14 +32,30 @@ class Relatorios extends CI_Model{
 	}
 	public function getRelatorioPatrimonio(){
 		$query = $this->db->get('equipamento');
-		
+	    
 		$equipamento;
 		foreach ($query->result() as $key => $value) {
 			$equipamento[$key] = $value;
 		}		
-		return $equipamento;
+		return $query->result();
 
 	}
+
+	public function getRelatorioPatrimonioById($id = ""){
+		if($id){
+				$query =$this->db->where('id_equipamento', $id);
+				$query = $this->db->get('equipamento');
+		}else{
+			$query = $this->db->get('equipamento');
+		}
+		
+		$patrimonio_login;
+		foreach ($query->result() as $key => $value) {
+			$patrimonio_login[$key] = $value;
+		}	
+		return $patrimonio_login;
+  	}
+
 	function select(){
 		$patrimonio = $this->input->post('num_patrimonio');
 		$query = $this->db->get_where('equipamento', array('patrimonio_equipamento' => $patrimonio), 1);

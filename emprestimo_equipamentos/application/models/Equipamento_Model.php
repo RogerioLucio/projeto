@@ -29,7 +29,7 @@ class Equipamento_Model extends CI_Model{
 		return $equipamentos;
 				
 	}
-
+		
 	function select(){
 		$patrimonio = $this->input->post('num_patrimonio');
 		$query = $this->db->get_where('equipamento', array('patrimonio_equipamento' => $patrimonio), 1);

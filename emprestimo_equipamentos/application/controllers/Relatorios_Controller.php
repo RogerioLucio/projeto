@@ -38,11 +38,10 @@ class Relatorios_Controller extends CI_Controller {
 	public function Relatorio_Patrimonio(){
 			$this->load->model('Relatorios');
 			
-
 			if(isset($_POST['id'])){
-
-				$dados['resultado'] = $this->Relatorios->getRelatorioPatrimonio();
-				var_dump($dados['resultado'][0]);
+				$varId = $_POST['id'];
+				$dados = $this->Relatorios->getRelatorioPatrimonioById($varId);
+				echo json_encode($dados) ;
 			}else{
 				$this->load->view('common/header');
 				$this->load->view('common/nav');
