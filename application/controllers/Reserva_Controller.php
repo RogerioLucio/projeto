@@ -35,14 +35,12 @@ class Reserva_Controller extends CI_Controller {
 	}
 
 	public function reserva_model(){
-		//print_r($_POST);
+		
 		$this->load->model('Reserva_Model','reservamodel');
 		
 		$resultado = $this->reservamodel->cadastro_reserva();
-
-		
-			
-			//redirect('usuario');
+	
+		redirect(base_url('/reserva_controller'));
 			
 	}
 
