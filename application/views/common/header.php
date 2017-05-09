@@ -29,7 +29,8 @@ $this->load->library('session');
 				<script src="<?php echo base_url('assets/js/tether.min.js');?>"></script>   
 				<script src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
 				<script src="<?php echo base_url('assets/js/chart.js/Chart.min.js');?>"></script>
-				<script src="<?php echo base_url('assets/js/sb-admin.min.js');?>"></script> 	
+				<script src="<?php echo base_url('assets/js/sb-admin.min.js');?>"></script> 
+				<script src="<?php echo base_url('assets/js/jquery.mask.min.js');?>"></script>	
 </head>
 
 			<!-- END header.php -->
