@@ -32,7 +32,7 @@
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 <i class="fa fa-fw fa-table"></i>   Relatorios </a>
                     <ul class="relatorios dropdown-menu">
-                      <li><a href="<?php echo base_url('Relatorios_Controller/relatorio')?>">Requisições</a></li>
+                      <li><a href="<?php echo base_url('Relatorios_Controller/Relatorio_Usuarios')?>">Usuários</a></li>
                       <li><a href="<?php echo base_url('Relatorios_Controller/Relatorio_Patrimonio')?>">Patrimônios</a></li>
                       <li><a href="#">Something else here</a></li>
                     </ul>

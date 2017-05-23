@@ -40,7 +40,7 @@ class Relatorios_Controller extends CI_Controller {
 			
 			if(isset($_POST['id'])){
 				$varId = $_POST['id'];
-				$dados = $this->Relatorios->getRelatorioPatrimonioById($varId);
+				$dados = $this->Relatorios->getRelatorioPatrimonio($varId);
 				echo json_encode($dados) ;
 			}else{
 				$this->load->view('common/header');
@@ -48,9 +48,25 @@ class Relatorios_Controller extends CI_Controller {
 				$dados['resultado'] = $this->Relatorios->getRelatorioPatrimonio();
 				$this->load->view('relatorios/patrimonio',$dados);
 			}
-
-			
 	}
+
+
+	public function Relatorio_Usuarios(){
+			$this->load->model('Relatorios');
+			if(isset($_POST['id'])){
+				$varId = $_POST['id'];
+				$dados = $this->Relatorios->getRelatorioUsuarios($varId);
+				echo json_encode($dados) ;
+			}else{
+				$this->load->view('common/header');
+				$this->load->view('common/nav');
+				$dados['resultado'] = $this->Relatorios->getRelatorioUsuarios();
+
+				$this->load->view('relatorios/usuarios',$dados);
+			}
+	}
+
+
 	public function atualiza(){
 		if($this->session->userData[0]->tipo_usuario == 'administrador'){
 			$this->load->model('Equipamento_Model');
@@ -95,4 +111,24 @@ class Relatorios_Controller extends CI_Controller {
  	public function sucesso(){
  		echo "Equipamento cadastrado com Sucesso =p!";
  	}
+
+
+	public function Atualizar_Patrimonio(){
+
+		if(isset($_POST)){
+			$this->load->model("Relatorios");
+		 	$res = $this->Relatorios->Update_Patrimonio($_POST);
+		 	echo $res;
+		}
+	}
+
+
+	public function Atualiza_Usuario(){
+
+		if(isset($_POST)){
+			$this->load->model("Relatorios");
+		 	$res = $this->Relatorios->Update_Usuario($_POST);
+		 	echo $res;
+		}
+	}
 }

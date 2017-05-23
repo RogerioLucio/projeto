@@ -5,7 +5,7 @@ session_destroy();
 
 <body style="">
 
-<div class="container">
+<div class="container col-md-7">
 	
 		
 	<div class="pagina login">					
@@ -15,7 +15,6 @@ session_destroy();
 			<div class="logo-home">
 				<img src="assets/img/if.png">		
 			</div>
-			
 		</div>
 		<hr>
 		</div>
@@ -29,9 +28,9 @@ session_destroy();
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-12">
+					<div class="col-md-12" style="padding-bottom: 20px;">
 						<label for="senha">Senha</label><br>
-						<input class="form-control" type="text" name="senha">
+						<input class="form-control" type="password" name="senha">
 					</div>
 				</div>
 

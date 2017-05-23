@@ -22,7 +22,7 @@ class Relatorios extends CI_Model{
 
 	public function getRelatorioReserva(){
 		$query = $this->db->get('reserva');
-		echo "<pre>" ;var_dump($query->result()); exit;
+	
 		$reserva;
 		foreach ($query->result() as $key => $value) {
 			$reserva[$key] = $value;
@@ -30,31 +30,69 @@ class Relatorios extends CI_Model{
 		return $equipamentos;
 				
 	}
-	public function getRelatorioPatrimonio(){
-		$query = $this->db->get('equipamento');
-	    
-		$equipamento;
-		foreach ($query->result() as $key => $value) {
-			$equipamento[$key] = $value;
-		}		
-		return $query->result();
-
-	}
-
-	public function getRelatorioPatrimonioById($id = ""){
+	
+	public function getRelatorioPatrimonio($id = ""){
 		if($id){
 				$query =$this->db->where('id_equipamento', $id);
 				$query = $this->db->get('equipamento');
 		}else{
-			$query = $this->db->get('equipamento');
+			$this->db->from('equipamento');
+			$this->db->join('categoria', 'equipamento.id_categoria = categoria.id_categoria');
+			$query = $this->db->get();
 		}
-		
 		$patrimonio_login;
 		foreach ($query->result() as $key => $value) {
 			$patrimonio_login[$key] = $value;
 		}	
 		return $patrimonio_login;
   	}
+  	public function getRelatorioUsuarios($id = ""){
+		if($id){
+				$this->db->where('id_usuario', $id);
+				$this->db->from('usuario');
+				$this->db->join('cargo', 'usuario.id_cargo = cargo.id_cargo');
+				$query = $this->db->get();
+		}else{
+			$this->db->from('usuario');
+			$this->db->join('cargo', 'usuario.id_cargo = cargo.id_cargo');
+			$query = $this->db->get();
+		}
+		$usuarios;
+		foreach ($query->result() as $key => $value) {
+			$usuarios[$key] = $value;
+		}	
+		return $usuarios;
+  	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	function select(){
 		$patrimonio = $this->input->post('num_patrimonio');
@@ -105,6 +143,43 @@ class Relatorios extends CI_Model{
 		$retorno = $this->db->delete('equipamento' , array('patrimonio' => $patrimonio));
 		return $retorno;
 
+	}
+
+	public function Update_Patrimonio($POST = ''){
+		//$id = $this->input->post('id');
+		//echo ($_POST); exit;
+		$this->db->set("nome_equipamento",$this->input->post('nome_equipamento'));
+		$this->db->set("id_categoria",$this->input->post('id_categoria'));
+		$this->db->set("status_equipamento",$this->input->post('status_equipamento'));
+		$this->db->set("id_espaco",$this->input->post('id_espaco'));
+		$this->db->where('id_equipamento', $this->input->post('id_equipamento'));
+		$this->db->update("equipamento");
+		return $this->db->last_query();
+	}
+
+	public function Update_Usuario($POST = ''){
+	
+		$this->db->set("nome_usuario",$this->input->post('nome_usuario'));
+		$this->db->set("rg_usuario",$this->input->post('rg_usuario'));
+		$this->db->set("tipo_usuario",$this->input->post('tipo_usuario'));
+		$this->db->set("prontuario_usuario",$this->input->post('prontuario_usuario'));
+		$this->db->set("senha_usuario",$this->input->post('senha_usuario'));
+		$this->db->set("login_usuario",$this->input->post('login_usuario'));
+		$this->db->set("email_usuario",$this->input->post('email_usuario'));
+		$this->db->set("cpf_usuario",$this->input->post('cpf_usuario'));
+		$this->db->set("nascimento_usuario",$this->input->post('nascimento_usuario'));
+		$this->db->set("telefone_usuario",$this->input->post('telefone_usuario'));
+		$this->db->set("celular_usuario",$this->input->post('celular_usuario'));
+		$this->db->set("observacoes_usuario",$this->input->post('observacoes_usuario'));
+		$this->db->set("sexo_usuario",$this->input->post('sexo_usuario'));
+		$this->db->set("data_senha_usuario",$this->input->post('data_senha_usuario'));
+		$this->db->set("status_usuario",$this->input->post('status_usuario'));
+		$this->db->set("id_cargo",$this->input->post('cargo'));
+		$this->db->set("id_setor",$this->input->post('setor'));
+		$this->db->where('id_usuario', $this->input->post('id_usuario'));
+		$this->db->update("usuario");
+		var_dump($this->db->last_query());
+		return $this->db->last_query();
 	}
 
 
