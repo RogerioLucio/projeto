@@ -26,7 +26,7 @@
 
            
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo base_url('equipamento/viewCadastro')?>"><i class="fa fa-fw fa-cogs"></i> Cadastro de Patrimonios</a>
+                    <a class="nav-link" href="<?php echo base_url('reserva_controller/index')?>"><i class="fa fa-fw fa-cogs"></i> Reservas</a>
                 </li>
                      <li class="dropdown">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
