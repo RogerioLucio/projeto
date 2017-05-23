@@ -22,13 +22,17 @@ class Reserva_Model extends CI_Model{
 			$dados['id_equipamento'] = $this->input->post('quantidade');
 			$dados['quantidade'] = $this->input->post('quantidade');
 			$id = $this->db->insert('equipamento_reservado',$dados);
-		}
+		}	
 
+  	}
 
-		//echo "<pre>";print_r($data);echo "</pre>";exit;
-
-		
-
+  	
+  	public function cadastra_documento(){
+  		$data['data_inicial'] = $this->input->post('data_inicial');
+  		$data['data_final'] = $this->input->post('data_final');
+  		$data['prontuario'] = $this->input->post('prontuario');
+  		$data['id_espaco'] = $this->input->post('espaco');
+  		$this->db->insert('documento',$data);
   	}
 
 }
