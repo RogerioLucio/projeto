@@ -4,9 +4,9 @@ $( function(){
 		}
 	});
 	
-	$('input[name=nome]').mask('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',{
+	$('input[name=nome]').mask('A',{
 		'translation' : {
-			A: {pattern : /[A-Za-z]/}
+			A: {pattern : /[A-Za-z]{100}/}
 		}
 	});
 
@@ -18,11 +18,6 @@ $( function(){
 		}
 	});
 
-	// $('input[name=email]').mask("A", {
-	// 	'translation': {
-	// 		A: { pattern: /[\w@\-.+]/ , recursive : true }
-	// 	}
-	// });
 
 	$('input[name=cpf]').mask("000.000.000-00");
 	$('input[name=data_nasc]').mask("00/00/0000");
@@ -40,9 +35,9 @@ $( function(){
 			A : {pattern : /[A-Za-z]/}
 		}
 	});
-	$('input[name=descricao]').mask('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', {
+	$('input[name=descricao]').mask('A', {
 		'translation' : {
-			A: {pattern : /[A-Za-z]/}
+			A: {pattern : /[A-Za-z]{100}/}
 		}
 	});
 
