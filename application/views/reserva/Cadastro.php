@@ -54,9 +54,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 				
 				<div class="col-md-12" style="background-color: white">
-				 <?php foreach ($equipamentos as $item): ?>
-
+				 <?php foreach ($categorias as $item): ?>
+							
 				 			<?php
+				 			
 				 				$count = 0;
 				 				$count++;
 				 				if( $count % 2 ==0 ){
@@ -65,14 +66,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				 					$cor = "grey";
 				 				}
 				 				
-				 			?>
+				 			?>	
+
 									 	<div class="row" style="background-color:<?=$cor?>">
 											<div class="col-md-2">
-												<input type="checkbox" name="equipamentos[]" value='<?=$item->id_equipamento?>'> 
-							             <?= $item->patrimonio_equipamento?> 
+												<input type="checkbox" name="equipamentos[]" value='<?=$item->id_categoria?>'> 
+							             <?= $item->descricao_categoria?> 
+							            
+							             
 											</div>
 											<div class="col-md-3">
-												 <p>Quantidade</p><input class="form-control" placheholder="quantidade" type="text" name="quantidade_<?=$item->id_equipamento?>"><br> 
+													<select name="quantidade" class="form-control ">
+												        <?php foreach ($equipamento_id as $key => $value): ?>
+												        	echo $value;
+												            <option value='<?=$equipamento_id[$key]->id_equipamento?>'>
+												            <?=$key+1?>
+												            </option>   
+												        <?php endforeach;?>
+											       </select>
+											
 											</div>
 										</div>
 							            

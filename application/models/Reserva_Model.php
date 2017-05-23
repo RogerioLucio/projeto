@@ -19,8 +19,8 @@ class Reserva_Model extends CI_Model{
 			
 			$id = $this->db->insert('reserva',$data);
 			$dados['id_reserva'] = $id;
-			$dados['id_equipamento'] = $data['id_equipamento'];
-			$dados['quantidade'] = $this->input->post('quantidade_'.$_POST['equipamentos'][$key]);
+			$dados['id_equipamento'] = $this->input->post('quantidade');
+			$dados['quantidade'] = $this->input->post('quantidade');
 			$id = $this->db->insert('equipamento_reservado',$dados);
 		}
 
