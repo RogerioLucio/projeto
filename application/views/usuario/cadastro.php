@@ -38,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="row">
 					<div class="col-md-6">
 						<label for="senha" class="label-cadastro">Email</label><br>
-						<input class="form-control" type="text" name="email">
+						<input class="form-control" type="email" name="email">
 					</div>
 					<div class="col-md-6">
 						<label for="senha" class="label-cadastro">Login</label><br>
