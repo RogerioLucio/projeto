@@ -20,7 +20,7 @@ class Espaco_Controller extends CI_Controller {
 	 */
 
 
-	function getEspacos(){
+	public function getEspacos(){
 		if($this->session->userData[0]->tipo_usuario == 'administrador'){
 			$this->load->model('Espaco_Model');
 			$resultado = $this->Espaco_Model->getEspacos();
@@ -29,5 +29,24 @@ class Espaco_Controller extends CI_Controller {
 			redirect(base_url('/'));
 		}
 	}
+	public function cadastro(){
+		if($this->session->userData[0]->tipo_usuario == 'administrador'){
+			$this->load->model('Espaco_Model');
+			$this->form_validation->set_rules('local', 'Local', 'required');
+			$this->form_validation->set_rules('descricao_espaco', 'Descricao', 'required');
+			if($this->form_validation->run() == TRUE){
+				$resultado = $this->Espaco_Model->insert();
+				if($resultado == null){
+					echo "ERRO";
+				}else{
+					redirect('equipamento/viewCadastro');
+				}
+			}else{
+				echo validation_errors();
+			}
+		}else{
+			redirect('/');
+		}
 
+	}
 }
