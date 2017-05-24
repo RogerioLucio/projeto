@@ -19,32 +19,51 @@ class Geral_Controller extends CI_Controller {
 		 */
 
 	public function CarregaSelectEspacos(){
-		/*$this->load->model('Geral');
+		$this->load->model('Geral');
 		if(isset($_POST['id'])){
 				$varId = $_POST['id'];
 				$dados = $this->Geral->getSelectEspacos($varId);
-				echo json_encode($dados) ;
+				echo json_encode($dados);
 			}else{
 				$dados  = $this->Geral->getSelectEspacos();
 				echo json_encode($dados) ;
-		}*/
+		}
 	}
 
-	public function CarregaSelectCategorias(){
-				$this->load->model('Geral');
-
+	public function CarregaSelectCargos(){
+		$this->load->model('Geral');
 		if(isset($_POST['id'])){
 				$varId = $_POST['id'];
-				$dados = $this->Geral->getSelectCategorias($varId);
-				echo json_encode($dados) ;
+				$dados = $this->Geral->getSelectCargos($varId);
+				echo json_encode($dados);
 			}else{
-				$this->load->view('common/header');
-				$this->load->view('common/nav');
-				$dados  = $this->Relatorios->getSelectCategorias();
+				$dados  = $this->Geral->getSelectCargos();
 				echo json_encode($dados) ;
-			}
+		}
+	}
+
+	public function CarregaSelectSetor(){
+		$this->load->model('Geral');
+		if(isset($_POST['id'])){
+				$varId = $_POST['id'];
+				$dados = $this->Geral->getSelectSetor($varId);
+				echo json_encode($dados);
+			}else{
+				$dados  = $this->Geral->getSelectSetor();
+				echo json_encode($dados) ;
+		}
 	}
 
 
-	
+	public function CarregaSelectCategorias(){
+		$this->load->model('Geral');
+		if(isset($_POST['id'])){
+				$varId = $_POST['id'];
+				$dados_categorias = $this->Geral->getSelectCategorias($varId);
+				echo json_encode($dados_categorias);
+			}else{
+				$dados_categorias  = $this->Geral->getSelectCategorias();
+				echo json_encode($dados_categorias);
+			}
+	}
 }

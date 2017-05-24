@@ -19,38 +19,28 @@ class Reserva_Controller extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 
-
-
-	public function index()
-	{
+	public function index() {
 		$this->load->model('Categoria_Model');
 		$data['categorias'] = $this->Categoria_Model->getCategoriaQuantidade();
-		$data['equipamento_id'] = $this->Categoria_Model->getCategoriaIdEquipamento();
-		
+
 		$this->load->model('Espaco_Model');
 		$data['espacos'] = $this->Espaco_Model->getEspacos();
 		$this->load->model('Equipamento_Model');
 		$data['equipamentos'] = $this->Equipamento_Model->getEquipamentos();
-		$data['quantidade'] = $this->Equipamento_Model->getQuantidadeEquipamento();
+		$data['quantidade']   = $this->Equipamento_Model->getQuantidadeEquipamento();
 		$this->load->view('common/header');
 		$this->load->view('common/nav');
-		$this->load->view('reserva/cadastro',$data);
+		$this->load->view('reserva/cadastro', $data);
 	}
 
-	public function reserva_model(){
-		
-		$this->load->model('Reserva_Model','reservamodel');
-		
+	public function reserva_model() {
+
+		$this->load->model('Reserva_Model', 'reservamodel');
+
 		$resultado = $this->reservamodel->cadastro_reserva();
-	
+
 		redirect(base_url('/reserva_controller'));
-			
+
 	}
 
-	public function cadastra_documento(){
-		$this->load->model('Reserva_Model','reservamodel');
-  		$this->reservamodel->cadastra_documento();
-  	}
-
-	
 }

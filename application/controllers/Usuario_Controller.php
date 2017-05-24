@@ -34,7 +34,7 @@ class Usuario_Controller extends CI_Controller {
 	*/
 	public function home(){
 		$this->load->library('session');
-		if($this->session->userData[0]->tipo_usuario == 'administrador'){
+		if($this->session->userData[0]->tipo_usuario == 'Administrador' || $this->session->userData[0]->tipo_usuario == 'administrador'  ){
 			$this->load->view('common/header');
 			$this->load->view('common/nav');
 			$this->load->view('home');
