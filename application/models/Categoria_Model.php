@@ -4,7 +4,7 @@ class Categoria_Model extends CI_Model{
 	
 
 	function insert(){
-		$descricao = $this->input->post('descricao');
+		$descricao = $this->input->post('novaCategoria');
 
 		$this->db->set('descricao_categoria' , $descricao);
 
@@ -53,7 +53,7 @@ class Categoria_Model extends CI_Model{
 	}
 
 	function delete(){
-		$descricao = $this->input->post('descricao');
+		$descricao = $this->input->post('descricao_categoria');
 		$retorno = $this->db->delete('categoria' , array('descricao_categoria' => $descricao));
 		return $retorno;
 

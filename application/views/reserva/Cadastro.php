@@ -12,8 +12,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="container col-md-9">					
 		
 			<div class="container col-md-12">
-				<form action='<?php echo base_url('reserva_controller/reserva_model');?>' method="POST">
-				<input type="hidden" name="prontuario" value="<?php echo $this->session->userData[0]->prontuario_usuario;?>">
+				<form id="target" action='<?php echo base_url('reserva_controller/reserva_model');?>' method="POST">
+				<input type="hidden" name="prontuario" id="prontuario" value="<?php echo $this->session->userData[0]->prontuario_usuario;?>">
 				<div class="row">
 					<div class="col-md-12">
 						<label for="descricao" style="color:white">Descrição da Reserva</label><br>
@@ -23,11 +23,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="row">
 					<div class="col-md-6">
 						<label for="senha" style="color:white">Data da Reserva Inicial</label><br>
-						<input class="form-control" type="text" name="data_inicial">
+						<input class="form-control" type="text" id="data_inicial" name="data_inicial">
 					</div>
 					<div class="col-md-6">
 						<label for="senha" style="color:white">Data Final da Reserva</label><br>
-						<input class="form-control" type="text" name="data_final">
+						<input class="form-control" type="text" id="data_final" name="data_final">
 					</div>
 				</div>
 				<div class="row">
@@ -43,7 +43,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 					<div class="col-md-6">
 							<label  class="label-cadastro" style="color:white">Espaço</label><br>
-								<select name="espaco" class="form-control ">
+								<select name="espaco" class="form-control " id="select_espaco">
 							        <?php foreach ($espacos as $item): ?>
 							            <option value='<?=$item->id_espaco?>'>
 							            <?= $item->local_espaco?> - <?=$item->descricao_espaco?>
@@ -95,7 +95,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 				<div class="row">
 					 <div class="col-md-12">
-					 		<input type="submit" id="login_entrar" class="btn btn-primary" value="Enviar" >
+					 		<input type="submit" id="enviar_reserva" class="btn btn-primary" value="Enviar" >
 					 </div>
 				</div>
 				

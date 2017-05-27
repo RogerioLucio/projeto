@@ -14,7 +14,20 @@ class Espaco_Model extends CI_Model{
 				
 	}
 
-	
+	public function insert(){
+		
+		$local = $this->input->post('local');
+		$descricao = $this->input->post('descricao_espaco');
+
+		$this->db->set('local_espaco' , $local);
+		$this->db->set('descricao_espaco' , $descricao);
+
+
+		$retorno = $this->db->insert('espaco');
+
+		return $retorno;
+
+	}
 
 
 }

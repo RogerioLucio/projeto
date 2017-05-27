@@ -6,10 +6,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <div class="container">
 	
-		<div class="col-md-12">
-			TESTE
-		</div>
-		
 	<div class="pagina" style="border-radius: 10px;">					
 		
 			<div class="div_cadastro">
@@ -76,7 +72,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-6">
+					<div class="col-md-10">
 						<label  class="label-cadastro">Cargo</label><br>
 							<select name="cargo" class="form-control ">
 						        <?php foreach ($cargo as $item): ?>
@@ -86,7 +82,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						        <?php endforeach;?>
 					       </select><br> 
 					</div>
-					<div class="col-md-6">
+					<div class="col-md-2">
+						<label for="novoCargo">Novo Cargo</label>
+						</br>
+						<button name="novoCargo" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCargo"><i class="fa fa-fw fa-plus"></i></button>
+					</div>
+					
+				</div>
+
+				<div class="row">
+
+
+				<div class="col-md-10">
 						<label  class="label-cadastro">Setor</label><br>
 							 <select name="setor" class="form-control ">
 						        <?php foreach ($setor as $item): ?>
@@ -94,10 +101,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						            <?= $item->nome_setor?>
 						            </option> 
 						        <?php endforeach;?>
-					       </select><br>
+					       </select>
+					       <br/>
 					</div>
+
+				<div class="col-md-2">
+					<label for="novoSetor">Novo Setor</label>
+					</br>
+					<button name="novoSetor" type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalSetor"><i class="fa fa-fw fa-plus"></i></button>
 				</div>
-				
+
+				</div>
+
+
+
 				<div class="row">
 					 <div class="col-md-12 text-right">
 					 		<input type="submit" id="login_entrar" class="btn btn-primary" value="Cadastrar" >
@@ -106,9 +123,72 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				
 				</form>
 			</div>
-		
-	</div>
+
+			
+<div class="container">
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="modalSetor" role="dialog">
+    <div class="modal-dialog">
+	    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Novo Setor</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+	   	<form action='<?php echo base_url('setor/cadastro');?>' method="POST">
+        <div class="modal-body">
+           	<label for="novoSetor">Nome</label>
+			<input type="text" name="novoSetor" class="form-control" value="<?php if(isset($novoSetor))echo $novoSetor?>">       
+		</div>
+        <div class="modal-footer">
+        	<div class="col-md-12">
+				<input type="submit" class="btn btn-primary pull-right" value="Cadastrar" name="cadastrar">
+				<input type="hidden" name="base_url" value="<?php echo base_url()?>" />
+			</div>
+        </div>
+        </form>
+      </div>
+	      
+ 	</div>
+  
 </div>
+</div>
+
+<!-- MODAL novo Cargo -->
+
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="modalCargo" role="dialog">
+    <div class="modal-dialog">
+	    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Novo Cargo</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+	   	<form action='<?php echo base_url('cargo/cadastro');?>' method="POST">
+        <div class="modal-body">
+           	<label for="novoCargo">Nome</label>
+			<input type="text" name="novoCargo" class="form-control" value="<?php if(isset($novoCargo))echo $novoCargo?>">       
+		</div>
+        <div class="modal-footer">
+        	<div class="col-md-12">
+				<input type="submit" class="btn btn-primary pull-right" value="Cadastrar" name="cadastrar">
+				<input type="hidden" name="base_url" value="<?php echo base_url()?>" />
+			</div>
+        </div>
+        </form>
+      </div>
+	      
+ 	</div>
+  
+</div>
+</div>
+
 
 </body>
 </html>

@@ -32,6 +32,8 @@ $this->load->library('session');
 				<script src="<?php echo base_url('assets/js/sb-admin.min.js');?>"></script> 
 				<script src="<?php echo base_url('assets/js/jquery.mask.min.js');?>"></script>	
                 <!--<script src="<?php #echo base_url('assets/js/mascaras_forms.js');?>"></script>-->
+                 <script src="<?php echo base_url('assets/js/termo_concordancia.js');?>"></script>
+
 </head>
 
 			<!-- END header.php -->

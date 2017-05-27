@@ -28,6 +28,28 @@ class Categoria_Controller extends CI_Controller {
 		}
 	}
 
+
+	public function cadastro(){
+	if($this->session->userData[0]->tipo_usuario == 'administrador'){
+		$this->load->model('Categoria_Model');
+		$this->form_validation->set_rules('novaCategoria', 'Nova Categoria', 'required');
+		if($this->form_validation->run() == TRUE){
+			$resultado = $this->Categoria_Model->insert();
+			if($resultado == null){
+				echo "ERRO";
+			}else{
+				redirect('equipamento/viewCadastro');
+			}
+		}else{
+			echo validation_errors();
+		}
+	}else{
+		redirect('/');
+	}
+	
+	
+}
+
 }
 
 

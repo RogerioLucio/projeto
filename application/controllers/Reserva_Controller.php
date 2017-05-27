@@ -49,5 +49,10 @@ class Reserva_Controller extends CI_Controller {
 			
 	}
 
+	public function cadastra_documento(){
+		$this->load->model('Reserva_Model','reservamodel');
+  		$this->reservamodel->cadastra_documento();
+  	}
+
 	
 }

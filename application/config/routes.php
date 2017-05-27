@@ -62,3 +62,12 @@ $route['equipamento/select']   = 'Equipamento_Controller/select';
 
 $route['categoria/getCategorias'] = 'Categoria_Controller/getCategorias';
 $route['categoria/getById']		  = 'Categoria_Controller/getById';
+$route['categoria/cadastro'] = 'Categoria_Controller/cadastro';
+
+
+$route['espaco/cadastro'] = 'Espaco_Controller/cadastro';
+
+$route['setor/cadastro'] = 'Setor_Controller/cadastro';
+
+$route['cargo/cadastro'] = 'Cargo_Controller/cadastro';
+
