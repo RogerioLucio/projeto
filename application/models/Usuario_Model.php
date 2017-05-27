@@ -35,7 +35,7 @@ class Usuario_Model extends CI_Model{
 		$prontuario = $this->input->post('prontuario');
 		$senha = $this->input->post('senha');
 
-		$this->db->select("nome_usuario, tipo_usuario, prontuario_usuario, id_setor, id_cargo");
+		$this->db->select("nome_usuario, tipo_usuario, prontuario_usuario, id_setor, id_cargo, id_usuario");
 		$this->db->from("usuario");
 		$this->db->where('prontuario_usuario',$prontuario);
 		$this->db->where('senha_usuario',$senha);

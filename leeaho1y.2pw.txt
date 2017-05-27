@@ -1,0 +1,24 @@
+﻿
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# Explicit paths specified without -i or -o; assuming --only paths...
+# On branch master
+# Your branch is behind 'origin/master' by 3 commits, and can be fast-forwarded.
+#   (use "git pull" to update your local branch)
+#
+# Changes to be committed:
+#	modified:   application/controllers/Relatorios_Controller.php
+#	modified:   application/controllers/Reserva_Controller.php
+#	modified:   application/models/Categoria_Model.php
+#	modified:   application/models/Relatorios.php
+#	modified:   application/models/Reserva_Model.php
+#	modified:   application/models/Usuario_Model.php
+#	modified:   application/views/common/header.php
+#	modified:   application/views/common/nav.php
+#	modified:   application/views/relatorios/patrimonio.php
+#	modified:   application/views/relatorios/usuarios.php
+#
+# Untracked files:
+#	application/views/relatorios/reserva.php
+#
+

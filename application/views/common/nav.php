@@ -34,7 +34,7 @@
                     <ul class="relatorios dropdown-menu">
                       <li><a href="<?php echo base_url('Relatorios_Controller/Relatorio_Usuarios')?>">Usuários</a></li>
                       <li><a href="<?php echo base_url('Relatorios_Controller/Relatorio_Patrimonio')?>">Patrimônios</a></li>
-                      <li><a href="#">Something else here</a></li>
+                      <li><a href="<?php echo base_url('Relatorios_Controller/Relatorio_Reservas')?>">Relatório Reservas</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">

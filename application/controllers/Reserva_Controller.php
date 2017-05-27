@@ -25,6 +25,8 @@ class Reserva_Controller extends CI_Controller {
 	{
 		$this->load->model('Categoria_Model');
 		$data['categorias'] = $this->Categoria_Model->getCategoriaQuantidade();
+
+		
 		$data['equipamento_id'] = $this->Categoria_Model->getCategoriaIdEquipamento();
 		
 		$this->load->model('Espaco_Model');

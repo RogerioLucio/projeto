@@ -26,8 +26,8 @@ class Categoria_Model extends CI_Model{
 
 	public function getCategoriaQuantidade(){
 		$sql = $this->db->query("SELECT DISTINCT categoria.id_categoria, categoria.descricao_categoria, equipamento.id_equipamento, count(equipamento.id_categoria) as quantidade
-		from categoria JOIN equipamento on categoria.id_categoria = equipamento.id_categoria 
-		JOIN equipamento_reservado on equipamento_reservado.id_equipamento = equipamento.id_equipamento  GROUP BY categoria.id_categoria");
+		from categoria LEFT JOIN equipamento on categoria.id_categoria = equipamento.id_categoria 
+		LEFT JOIN equipamento_reservado on equipamento_reservado.id_equipamento = equipamento.id_equipamento  GROUP BY categoria.id_categoria");
 		$query= $sql->result();
 		return $query;
 	}

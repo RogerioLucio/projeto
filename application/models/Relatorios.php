@@ -64,6 +64,35 @@ class Relatorios extends CI_Model{
 		return $usuarios;
   	}
 
+  public function getRelatoriosReserva($id = ""){
+
+		if($id){
+			$this->db->where('auxiliar', (int)$id);
+			$this->db->from('reserva');
+			$this->db->join('categoria', 'reserva.id_categoria = categoria.id_categoria');
+			$this->db->join('equipamento', 'equipamento.id_equipamento = reserva.id_equipamento');
+			$this->db->join('usuario', 'usuario.id_usuario = reserva.id_usuario');
+			$query = $this->db->get();
+
+
+				//$query = $this->db->get('reserva');
+		}else{
+			$this->db->from('reserva');
+			$this->db->group_by("reserva.auxiliar");
+			$this->db->join('categoria', 'reserva.id_categoria = categoria.id_categoria');
+			$this->db->join('equipamento', 'equipamento.id_equipamento = reserva.id_equipamento');
+			$this->db->join('usuario', 'usuario.id_usuario = reserva.id_usuario');
+			$query = $this->db->get();
+		}
+		$patrimonio_login;
+		foreach ($query->result() as $key => $value) {
+			$patrimonio_login[$key] = $value;
+		}	
+		return $patrimonio_login;
+  }
+
+
+
 
 
 

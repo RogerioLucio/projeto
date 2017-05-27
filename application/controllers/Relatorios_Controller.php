@@ -51,6 +51,23 @@ class Relatorios_Controller extends CI_Controller {
 	}
 
 
+
+	public function Relatorio_Reservas(){
+			$this->load->model('Relatorios');
+			if(isset($_POST['id'])){
+				$varId = $_POST['id'];
+				$dados = $this->Relatorios->getRelatoriosReserva($varId);
+				echo json_encode($dados) ;
+			}else{
+				$this->load->view('common/header');
+				$this->load->view('common/nav');
+				$dados['resultado'] = $this->Relatorios->getRelatoriosReserva();
+				$this->load->view('relatorios/reserva',$dados);
+			}
+	}
+
+
+
 	public function Relatorio_Usuarios(){
 			$this->load->model('Relatorios');
 			if(isset($_POST['id'])){
