@@ -88,6 +88,7 @@
 <script type="text/javascript">
     var id  = this.id;
   $("[name=opc]").on("click",function teste(){
+    $(".camp").html("");
     id  = this.id;
     var categoria_linha = $(this).data("categoria");
 
@@ -103,14 +104,12 @@
       $(retorno_data).each(function(){
         $(".camp").append("<tr><td>" + retorno_data[i].nome_equipamento + "</td> <td>" + retorno_data[i].patrimonio_equipamento + "</td> <td>" + retorno_data[i].descricao_categoria + "</td> </tr>");
         i++;
-   
         })
       }})
 
     $('#myModal').modal('show'); 
   });
 </script>
-
 <style type="text/javascript">
 
 

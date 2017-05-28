@@ -1,15 +1,17 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
+
 ?>
 <body style="background-color: #00420c;">
 
 <div class="container">
 	
-		<div class="col-md-12">
+		<div class="col-md-12 padding-">
 			<h1 style="color:white" class="text-center">Usuário: <?php echo $this->session->userData[0]->nome_usuario;?></h1>
 		</div><br><br>
 		
-	<div class="container col-md-9">					
+	<div class="container">					
 		
 			<div class="container col-md-12">
 				<form id="target" action='<?php echo base_url('reserva_controller/reserva_model');?>' method="POST">
@@ -32,8 +34,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 				<div class="row">
 					<div class="col-md-6">
-							<label  class="label-cadastro" style="color:white">Categoria</label><br>
-								<select name="categoria" class="form-control ">
+							<label  style="display:none;" class="label-cadastro" style="color:white">Categoria</label><br>
+								<select style="display:none;"   name="categoria" class="form-control ">
 							        <?php foreach ($categorias as $item): ?>
 							            <option value='<?=$item->id_categoria?>'>
 							            <?= $item->descricao_categoria?>
@@ -53,43 +55,45 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 				</div>
 				
-				<div class="col-md-12" style="background-color: white">
-				 <?php foreach ($categorias as $item): ?>
-							
-				 			<?php
-				 			
-				 				$count = 0;
-				 				$count++;
-				 				if( $count % 2 ==0 ){
-				 					$cor = "black";
-				 				}else{
-				 					$cor = "grey";
-				 				}
-				 				
-				 			?>	
+				<div class="col-md-12" style="min-height	t:200px; background-color: white">
+				 <?php
+				 	$count = 0;
+				 	
+				  foreach ($categorias as $item): 
 
-									 	<div class="row" style="background-color:<?=$cor?>">
-											<div class="col-md-2">
-												<input type="checkbox" name="equipamentos[]" value='<?=$item->id_categoria?>'> 
-							             <?= $item->descricao_categoria?> 
-							            
-							             
-											</div>
-											<div class="col-md-3">
-													<select name="quantidade" class="form-control ">
-												        <?php foreach ($equipamento_id as $key => $value): ?>
-												        	echo $value;
-												            <option value='<?=$equipamento_id[$key]->id_equipamento?>'>
-												            <?=$key+1?>
-												            </option>   
-												        <?php endforeach;?>
-											       </select>
-											
-											</div>
-										</div>
+				  if( $count % 2 == 0 ){
+				 		$cor = "white";
+				 	}else{
+				 		$cor = "#f2f2f2";
+				 	}
+				  ?>
+				  <div class="row" style="padding:10px; background-color:<?php echo $cor ?>;" >	
+						<div class="col-md-2">
+								<input type="checkbox" name="equipamentos[]" value='<?=$item->id_categoria?>'> 
+			          		 <?= $item->descricao_categoria?> 
+			         
+			            
+						</div>
+						<div class="col-md-3">
+								<select name="quantidade" class="form-control ">
+							        <?php foreach ($equipamento_id as $key => $value): ?>
+							        	echo $value;
+							            <option value='<?=$equipamento_id[$key]->id_equipamento?>'>
+							            <?=$key+1?>
+							            </option>   
+							        <?php endforeach;?>
+						       </select>
+						
+						</div>
+								
+					</div>		
 							            
 							            </option> 
-							        <?php endforeach;?>
+					        <?php 
+					        $count++;
+
+					        endforeach;
+					        ?>
 		        </div>
 
 

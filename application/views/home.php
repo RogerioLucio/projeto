@@ -7,7 +7,7 @@
 
         <!-- Breadcrumbs -->
         <ol class="breadcrumb my-3">
-            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="#">Casa</a></li>
             <li class="breadcrumb-item active">My Dashboard</li>
         </ol>
 
@@ -171,7 +171,7 @@
                     <div class="col-lg-4">
                        <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Transactions Panel</h3>
+                                <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Usuários do Sistema</h3>
                             </div>
                             <div class="panel-body">
                                 <div class="table-responsive">
@@ -396,3 +396,18 @@
     </div>
 
 </body>
+
+<script type="text/javascript">
+        
+    $.ajax({
+        url:"<?php echo base_url('Common_Controller/getUsuarios')?>",
+
+        type:'POST',
+        success: function(data){
+           var retorno_data = JSON.parse(data);
+            console.log(retorno_data);
+        }
+    });
+
+
+</script>

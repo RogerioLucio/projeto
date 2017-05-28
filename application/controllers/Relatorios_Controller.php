@@ -78,8 +78,8 @@ class Relatorios_Controller extends CI_Controller {
 				$this->load->view('common/header');
 				$this->load->view('common/nav');
 				$dados['resultado'] = $this->Relatorios->getRelatorioUsuarios();
-
 				$this->load->view('relatorios/usuarios',$dados);
+				//echo json_encode($dados) ;
 			}
 	}
 

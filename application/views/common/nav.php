@@ -26,17 +26,17 @@
 
            
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo base_url('reserva_controller/index')?>"><i class="fa fa-fw fa-cogs"></i> Reservas</a>
+                    <a class="nav-link" href="<?php echo base_url('reserva_controller/index')?>"> <i class="fa fa-fw fa-cogs"></i> Reservas</a>
                 </li>
-                     <li class="dropdown">
-                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                <i class="fa fa-fw fa-table"></i>   Relatorios </a>
-                    <ul class="relatorios dropdown-menu">
-                      <li><a href="<?php echo base_url('Relatorios_Controller/Relatorio_Usuarios')?>">Usuários</a></li>
-                      <li><a href="<?php echo base_url('Relatorios_Controller/Relatorio_Patrimonio')?>">Patrimônios</a></li>
-                      <li><a href="<?php echo base_url('Relatorios_Controller/Relatorio_Reservas')?>">Relatório Reservas</a></li>
-                    </ul>
-                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-fw fa-table " style="margin-left: 8px;"></i>   Relatorios </a>
+                        <ul class="relatorios dropdown-menu">
+                          <li><a href="<?php echo base_url('Relatorios_Controller/Relatorio_Usuarios')?>">Usuários</a></li>
+                          <li><a href="<?php echo base_url('Relatorios_Controller/Relatorio_Patrimonio')?>">Patrimônios</a></li>
+                          <li><a href="<?php echo base_url('Relatorios_Controller/Relatorio_Reservas')?>"> Reservas</a></li>
+                        </ul>
+                    </li>
                 <li class="nav-item">
                     <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExample"><i class="fa fa-fw fa-sitemap"></i> Menu Levels</a>
                     <ul class="sidebar-second-level collapse" id="collapseExample">

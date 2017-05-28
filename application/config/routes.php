@@ -52,22 +52,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'Usuario_Controller';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-
-
 $route['equipamento/viewCadastro'] = 'Equipamento_Controller/viewCadastro';
 $route['equipamento/cadastro'] = 'Equipamento_Controller/cadastro';
 $route['equipamento/sucesso']  = 'Equipamento_Controller/sucesso';
 $route['equipamento/atualiza'] = 'Equipamento_Controller/atualiza';
 $route['equipamento/select']   = 'Equipamento_Controller/select';
-
 $route['categoria/getCategorias'] = 'Categoria_Controller/getCategorias';
 $route['categoria/getById']		  = 'Categoria_Controller/getById';
 $route['categoria/cadastro'] = 'Categoria_Controller/cadastro';
-
-
 $route['espaco/cadastro'] = 'Espaco_Controller/cadastro';
-
 $route['setor/cadastro'] = 'Setor_Controller/cadastro';
-
 $route['cargo/cadastro'] = 'Cargo_Controller/cadastro';
 

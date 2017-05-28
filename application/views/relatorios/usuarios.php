@@ -164,7 +164,7 @@
         data: values,
         type: "post",
         success: function(data){
-             $(".mensagem").html("<div class='alert alert-success'>Patrimônio Atualizado</div>");
+             $(".mensagem").html("<div class='alert alert-success'>Usuário Atualizado</div>");
         }})
       });
 
