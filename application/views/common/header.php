@@ -1,6 +1,6 @@
 <?php
 $this->load->library('session');
-
+include('mpdf60/mpdf.php');
 ?>
 <!DOCTYPE html>
 		<html lang="portugues">
