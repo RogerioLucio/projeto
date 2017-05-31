@@ -99,7 +99,10 @@ class Usuario_Controller extends CI_Controller {
 		if($this->form_validation->run() == TRUE){
 			$resultado = $this->usuariomodel->login();
 			if($resultado == null){
-				echo "ERRO";
+
+			   $this->load->view('common/header');
+			   $data['text_email_error'] = 'E-mail ou Senha Incorretos';
+				$this->load->view('usuario/Login', $data);
 			}else{
 				$this->load->library('session');
 				$this->session->set_userdata('userData', $resultado);
