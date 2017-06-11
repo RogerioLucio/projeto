@@ -56,32 +56,26 @@ class Reserva_Controller extends CI_Controller {
 
 
   	public function gera_pdf(){
-  		include('mpdf60/mpdf.php');
-  		$html = "
-		 <fieldset>
-	 	<h1>Recibo</h1>
-	 	<p class='center sub-titulo'>
-	 		Nº <strong>0001</strong> - 
-	 		VALOR <strong>R$ 500,00</strong>
-	 	</p>
-	 	<p>Recebi(emos) de <strong>Carlos Domingues Neto</strong></p>
-	 	<p>a quantia de <strong>Quinhentos Reais</strong></p>
-	 	<p>Correspondente a <strong>Serviços prestados ..<strong></p>
-	 	<p>e para clareza firmo(amos) o presente.</p>
-	 	<p class='direita'>São Roque, 25 de Dezembro de 2015</p>
-	 	<p>Assinatura ......................................................................................................................................</p>
-	 	<p>Nome <strong>João da Silva Nogueira</strong> CPF/CNPJ: <strong>222.222.222-02</strong></p>
-	 	<p>Endereço <strong>Rua da Penha, 200 - Jd. Alguma Coisa - São Paulo</strong></p>
-	 </fieldset>";
- 
-	$mpdf=new mPDF(); 
-	$mpdf->SetDisplayMode('fullpage');
-	$css = file_get_contents("css/estilo.css");
-	$mpdf->WriteHTML($css,1);
-	$mpdf->WriteHTML($html);
-	$mpdf->Output();
- 
-	exit;
+
+  		
+	  		// Instancia a classe mPDF
+		$mpdf = new mPDF();
+		// Ao invés de imprimir a view 'welcome_message' na tela, passa o código
+		// HTML dela para a variável $html
+		$html = $this->load->view('welcome_message','',TRUE);
+		// Define um Cabeçalho para o arquivo PDF
+		$mpdf->SetHeader('Gerando PDF no CodeIgniter com a biblioteca mPDF');
+		// Define um rodapé para o arquivo PDF, nesse caso inserindo o número da
+		// página através da pseudo-variável PAGENO
+		$mpdf->SetFooter('{PAGENO}');
+		// Insere o conteúdo da variável $html no arquivo PDF
+		$mpdf->writeHTML($html);
+		// Cria uma nova página no arquivo
+		$mpdf->AddPage();
+		// Insere o conteúdo na nova página do arquivo PDF
+		$mpdf->WriteHTML('<p><b>Minha nova página no arquivo PDF</b></p>');
+		// Gera o arquivo PDF
+		$mpdf->Output();
 
   	}
 	
