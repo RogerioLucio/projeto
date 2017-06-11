@@ -65,6 +65,7 @@ class Relatorios extends CI_Model{
   	}
 
   public function getRelatoriosReserva($id = ""){
+  
 
 		if($id){
 			$this->db->where('auxiliar', (int)$id);

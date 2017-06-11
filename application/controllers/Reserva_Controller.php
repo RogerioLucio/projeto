@@ -56,13 +56,17 @@ class Reserva_Controller extends CI_Controller {
 
 
   	public function gera_pdf(){
-
+ 
+  		//extract($_POST);
+  		//var_dump($_GET[0]);
+  		//exit;
+ 		$html = (string)$_GET[0];
   		
 	  		// Instancia a classe mPDF
 		$mpdf = new mPDF();
 		// Ao invés de imprimir a view 'welcome_message' na tela, passa o código
 		// HTML dela para a variável $html
-		$html = $this->load->view('welcome_message','',TRUE);
+		//$html = $this->load->view('welcome_message','',TRUE);
 		// Define um Cabeçalho para o arquivo PDF
 		$mpdf->SetHeader('Gerando PDF no CodeIgniter com a biblioteca mPDF');
 		// Define um rodapé para o arquivo PDF, nesse caso inserindo o número da
@@ -76,6 +80,7 @@ class Reserva_Controller extends CI_Controller {
 		$mpdf->WriteHTML('<p><b>Minha nova página no arquivo PDF</b></p>');
 		// Gera o arquivo PDF
 		$mpdf->Output();
+
 
   	}
 	

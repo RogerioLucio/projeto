@@ -4,8 +4,10 @@
       <div class="row">
   
         <div class="col-sm-9 col-sm-offset-3 col-md-12  main">
-   
-          <h2 class="sub-header">Relatório de Reservas </h2>
+      
+          <h2 class="sub-header"> Relatório de Reservas </h2>
+
+          
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
@@ -51,6 +53,14 @@
             </table>
           </div>
         </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="pull-right">
+            <input type="button" value="Gerar Relatório" name="js_rl_reserva" class="btn btn-primary mr-3 mt-4" name="">
+          </div>
+        </div>
+
       </div>
 
       <!-- Modal content-->
@@ -108,11 +118,33 @@
       }})
 
     $('#myModal').modal('show'); 
+
   });
+
+     $("[name=js_rl_reserva]").on ('click',function(){
+      var data = $(".main").html();
+      // var win=window.open('<?php echo base_url('reserva_controller/gera_pdf')?>');
+      open('<?php echo base_url('reserva_controller/gera_pdf')?>?'+$(".main").html(),  'teste', '_blank');
+
+     });
+     /*
+   $("[name=js_rl_reserva]").on ('click',function(){
+  
+      $.ajax({
+      url: "<?php #echo base_url('reserva_controller/gera_pdf')?>",
+      type: "post",
+      data: 'html='+$(".main").html(),
+      contentType: "application/xml; charset=utf-8",
+      success: function(data){
+       // console.log(data);
+         var win = window.open('', '_blank');
+         //win.location.href = data;
+
+      }
+      });
+    });*/
 </script>
 <style type="text/javascript">
-
-
   .modal-dialog {
       width: 1300px !important ;
       margin: 30px auto;
