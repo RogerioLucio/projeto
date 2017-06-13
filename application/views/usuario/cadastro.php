@@ -10,7 +10,7 @@
 					<form action='<?php echo base_url('usuario_controller/cadastro_model');?>' method="POST">
 						<div class="row">	
 							<div class="col-md-12">	
-								<div class="text-center">	
+								<div class="text-left">	
 									<h2><label class="label-cadastro">Cadastro de Usuário</label></h2>
 								</div>
 							</div>
