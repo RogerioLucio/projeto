@@ -2,12 +2,8 @@
 <body style="">
 <div class="container">
       <div class="row">
-  
         <div class="col-sm-9 col-sm-offset-3 col-md-12  main">
-      
           <h2 class="sub-header"> Relatório de Reservas </h2>
-
-          
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
@@ -57,7 +53,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="pull-right">
-            <input type="button" value="Gerar Relatório" name="js_rl_reserva" class="btn btn-primary mr-3 mt-4" name="">
+            <input type="button" value="Gerar Relatório" id="js_rl_reserva" name="js_rl_reserva" class="btn btn-primary mr-3 mt-4" name="">
           </div>
         </div>
 
@@ -88,6 +84,7 @@
             </div>
             <div class="mensagem"> </div>
             <div class="modal-footer">
+            <button type="button" class="btn btn-info" data-reserva="" name="gera_remessa" data-dismiss="modal">Gerar Guia de remessa</button>
               <button type="button" class="btn btn-default" name="fechar" data-dismiss="modal">Fechar</button>
             </div>
           </div>
@@ -100,6 +97,10 @@
   $("[name=opc]").on("click",function teste(){
     $(".camp").html("");
     id  = this.id;
+
+    //
+
+    $("[name=gera_remessa]");
     var categoria_linha = $(this).data("categoria");
 
     $.ajax({
@@ -123,26 +124,15 @@
 
      $("[name=js_rl_reserva]").on ('click',function(){
       var data = $(".main").html();
-      // var win=window.open('<?php echo base_url('reserva_controller/gera_pdf')?>');
       open('<?php echo base_url('reserva_controller/gera_pdf')?>?'+$(".main").html(),  'teste', '_blank');
 
      });
-     /*
-   $("[name=js_rl_reserva]").on ('click',function(){
-  
-      $.ajax({
-      url: "<?php #echo base_url('reserva_controller/gera_pdf')?>",
-      type: "post",
-      data: 'html='+$(".main").html(),
-      contentType: "application/xml; charset=utf-8",
-      success: function(data){
-       // console.log(data);
-         var win = window.open('', '_blank');
-         //win.location.href = data;
 
-      }
-      });
-    });*/
+
+     $("[name=gera_remessa]").click(function(){
+
+
+     });
 </script>
 <style type="text/javascript">
   .modal-dialog {

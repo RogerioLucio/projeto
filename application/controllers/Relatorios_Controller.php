@@ -141,11 +141,12 @@ class Relatorios_Controller extends CI_Controller {
 
 
 	public function Atualiza_Usuario(){
-
 		if(isset($_POST)){
 			$this->load->model("Relatorios");
 		 	$res = $this->Relatorios->Update_Usuario($_POST);
 		 	echo $res;
 		}
 	}
+
+	
 }
