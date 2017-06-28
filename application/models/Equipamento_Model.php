@@ -82,6 +82,21 @@ class Equipamento_Model extends CI_Model{
 
 	}
 
+	function update_status($id_equipamento = null, $status = null){
+		$this->db->set('status_equipamento', $status);
+		$i = 0;
+		foreach ($id_equipamento as $id) {
+	    	if($i == 0){
+	    		$this->db->where('id_equipamento', $id);
+	    	}else{
+	    		$this->db->or_where('id_equipamento', $id);
+	    	}
+	    	$i++;
+		}
+	    $retorno = $this->db->update('equipamento');
+		return $retorno;
+	}	
+
 
 	function delete(){
 		$patrimonio = $this->input->post('patrimonio');

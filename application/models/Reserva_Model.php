@@ -40,4 +40,13 @@ class Reserva_Model extends CI_Model
 
   	}
 
+  	public function devolucao($id, $id_equipamento){
+  		$this->db->set('status_reserva', 'Finalizado');
+  		$this->db->where('auxiliar', $id);
+  		$retorno[0] = $this->db->update('reserva');
+  		$this->load->model('Equipamento_Model', 'equipamento');
+  		$retorno[1] = $this->equipamento->update_status($id_equipamento, 1);
+		return $retorno;
+  	}  	
+
 }

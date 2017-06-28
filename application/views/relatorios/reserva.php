@@ -1,9 +1,10 @@
-
 <body style="">
 <div class="container">
       <div class="row">
+  
         <div class="col-sm-9 col-sm-offset-3 col-md-12  main">
-          <h2 class="sub-header"> Relatório de Reservas </h2>
+   
+          <h2 class="sub-header">Relatório de Reservas </h2>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
@@ -27,20 +28,20 @@
                   }else{
                      echo "<tr style='background-color:white;'>";
                   }
-                  if($patrimonio->status_equipamento == 1){
-                        $status = "Disponível";
-                  }else if($patrimonio->status_equipamento == 2){
-                        $status = "Reservado";
-                  }else if($patrimonio->status_equipamento == 3){
-                        $status = "Descartado";
-                  }
+                  // if($patrimonio->status_reserva == 1){
+                  //       $status = "Disponível";
+                  // }else if($patrimonio->status_reserva == 2){
+                  //       $status = "Reservado";
+                  // }else if($patrimonio->status_reserva == 3){
+                  //       $status = "Descartado";
+                  // }
                        
                   echo "<td style='padding-right:10px'>" . $patrimonio->auxiliar . "</td>";
                   echo "<td>" . $patrimonio->nome_usuario . "</td>";
                   echo "<td>" . $patrimonio->data_inicio_reserva . "</td>";
                   echo "<td>" . $patrimonio->data_final_reserva . "</td>";
-                  echo "<td>" . $status . "</td>";
-                  echo "<td> <span name='opc'  data-categoria='$patrimonio->auxiliar' id=". $patrimonio->auxiliar  . " ><i class='fa fa-cog' aria-hidden='true'></i></span></td>";
+                  echo "<td>" . $patrimonio->status_reserva . "</td>";
+                  echo "<td> <span name='opc'  data-categoria='$patrimonio->auxiliar' id=". $patrimonio->auxiliar  . " r55555555555555555><i class='fa fa-cog' aria-hidden='true'></i></span></td>";
                   echo "<tr>";
                   $count++;
                 }
@@ -50,14 +51,6 @@
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="pull-right">
-            <input type="button" value="Gerar Relatório" id="js_rl_reserva" name="js_rl_reserva" class="btn btn-primary mr-3 mt-4" name="">
-          </div>
-        </div>
-
-      </div>
 
       <!-- Modal content-->
      <div id="myModal" class="modal fade" role="dialog">
@@ -66,7 +59,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">Novo Usuário</h4>
+              <h4 class="modal-title">Relatório de Reserva</h4>
             </div>
             <div class="modal-body">
               <table class="table table-striped">
@@ -78,13 +71,12 @@
                   </tr>
                 </thead>
                 <tbody class="camp">
-         
                
               </table>
             </div>
             <div class="mensagem"> </div>
             <div class="modal-footer">
-            <button type="button" class="btn btn-info" data-reserva="" name="gera_remessa" data-dismiss="modal">Gerar Guia de remessa</button>
+              <a href="" id="relatorio_devolucao" target="_blank" class="btn btn-primary" name="devolucao">Registrar Devolução</a>
               <button type="button" class="btn btn-default" name="fechar" data-dismiss="modal">Fechar</button>
             </div>
           </div>
@@ -94,13 +86,10 @@
 
 <script type="text/javascript">
     var id  = this.id;
+    $('input[name=id]').val(id);
   $("[name=opc]").on("click",function teste(){
     $(".camp").html("");
     id  = this.id;
-
-    //
-
-    $("[name=gera_remessa]");
     var categoria_linha = $(this).data("categoria");
 
     $.ajax({
@@ -119,22 +108,13 @@
       }})
 
     $('#myModal').modal('show'); 
-
+      href = 'Reserva_Controller/relatorio_devolucao?'+id;
+    $('#relatorio_devolucao').attr('href', '<?php echo base_url("Reserva_Controller/relatorio_devolucao?id=")?>'+this.id);
   });
-
-     $("[name=js_rl_reserva]").on ('click',function(){
-      var data = $(".main").html();
-      open('<?php echo base_url('reserva_controller/gera_pdf')?>?'+$(".main").html(),  'teste', '_blank');
-
-     });
-
-
-     $("[name=gera_remessa]").click(function(){
-
-
-     });
 </script>
 <style type="text/javascript">
+
+
   .modal-dialog {
       width: 1300px !important ;
       margin: 30px auto;
